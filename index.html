@@ -1,0 +1,74 @@
+<html>
+<head>
+    <title>Search Bar</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+<h2><marquee>Search By Name 🔍 </marquee></h2>
+
+<input type="text" id="myInput" onkeyup="searchFun()" placeholder="Enter Name..">
+
+<table id="myTable">
+  <tr class="header">
+    <th>Name</th>
+    <th>Degree</th>
+  </tr>
+  <tr>
+    <td>Nitesh</td>
+    <td>bachelor of engineering</td>
+  </tr>
+  <tr>
+    <td>Siddharth</td>
+    <td>bachelor of Technology</td>
+  </tr>
+  <tr>
+    <td>Rajat</td>
+    <td>Master of Business Administration</td>
+  </tr>
+  <tr>
+    <td>Prayag</td>
+    <td>bachelor of Technology</td>
+  </tr>
+  <tr>
+    <td>Akash</td>
+    <td>bachelor of engineering</td>
+  </tr>
+  <tr>
+    <td>Ashish</td>
+    <td>Master of Business Administration</td>
+  </tr>
+  <tr>
+    <td>Sunil</td>
+    <td>bachelor of engineering</td>
+  </tr>
+  <tr>
+    <td>Sohan</td>
+    <td>Master of Business Administration</td>
+  </tr>
+</table>
+</div>
+<script>
+const searchFun = () => {
+ let filter = document.getElementById("myInput").value.toUpperCase();
+
+ let mytable = document.getElementById("myTable");
+
+ let tr = mytable.getElementsByTagName("tr");
+
+  for (var i = 0; i < tr.length; i++) {
+   let  td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+     let txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
